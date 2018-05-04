@@ -2,9 +2,19 @@ const http = require('http')
 
 const server = http.createServer()
 
-const Laf = require('./store/laf')
+const LAF = require('./store/laf')
 
-const laf = new Laf();
+//-------------------
+
+// 使用基于文件的模拟数据库时（laf_plus.js）用下面这段代码，之后删除laf的定义语句，并将所有的laf改为lafplus
+
+// const LAFPlus = require('./store/laf_plus')
+
+// const lafplus = new LAFPlus();
+
+// -----------------
+
+const laf = new LAF()
 
 const fs = require('fs')
 

@@ -7,15 +7,15 @@ class BaseFileDB {
         this.splitChar = '\n'
         this.data = []
         this.dbPath = dbPath
-        this.preSealize()
+        this.preUnsealize()
     }
 
     preUnsealize() {
         let _this = this
         fs.readFile(this.dbPath, function (err, data) {
             if (err) throw err
-            data.toString().forEach(function (e) {
-                if (e !== '') this.data.push(_this.unserialize(e))
+            data.toString().split(_this.splitChar).forEach(function (e) {
+                if (e !== '') _this.data.push(_this.unserialize(e))
             })
         })
     }
@@ -36,7 +36,7 @@ class BaseFileDB {
 
 class LAFPlus extends BaseFileDB {
     constructor() {
-        super()
+        super(__dirname + '/laf.db')
     }
 
     getLafs() {
@@ -50,3 +50,5 @@ class LAFPlus extends BaseFileDB {
         })
     }
 }
+
+module.exports = LAFPlus
