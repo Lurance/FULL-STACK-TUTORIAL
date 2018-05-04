@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>LAF INDEX</title>
+
+        <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    </head>
+
+    <body>
+        <fieldset>
+            <legend>Add LAF</legend>
+            Username: <input type="text" id="username"><br />
+            Item: <input type="text" id="item"><br />
+            <button id="submit">Submit</button>
+        </fieldset>
+    </body>
+
+    <script>
+        document.getElementById('submit').addEventListener('click', function() {
+            let username = document.getElementById('username').value
+            let item = document.getElementById('item').value
+
+            axios.post('admin', {
+                username: username,
+                item: item
+            })
+            .then(function(res) {
+                if(res.data === 'OK') {
+                    location.href = '/'
+                }
+            })
+        })
+    </script>
+</html>

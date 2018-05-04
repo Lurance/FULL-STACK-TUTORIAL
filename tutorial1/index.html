@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>LAF INDEX</title>
+
+        <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    </head>
+
+    <body>
+        <h2>All LAFS:</h2>
+        <section id="lafs">
+
+        </section>
+        <button id="go">Go Administrator</button>
+    </body>
+
+    <script>
+        document.getElementById('go').addEventListener('click', function() {
+            location.href = '/admin'
+        })
+
+        function render(obj) {
+            document.getElementById('lafs').innerHTML += `
+            Username: ${obj.username}<br />
+            Item: ${obj.item}<br />
+            <hr />
+            `
+        }
+
+        axios.get('lafs')
+        .then(function (res) {
+            res.data.forEach(function(v) {
+                render(v)
+            });
+        })
+    </script>
+</html>

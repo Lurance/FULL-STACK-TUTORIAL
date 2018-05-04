@@ -1,0 +1,14 @@
+{
+  "name": "tutorial1",
+  "version": "1.0.0",
+  "description": "Tutorial1",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
