@@ -28,4 +28,18 @@ store   ------------------- 模拟存储
 admin.html ---------------- 填写laf页面 GET /admin
 index.html ---------------- 首页展示所有的lafs
 index.js   ---------------- WebService
+
+test    ------------------- 测试用例
+   |
+   |--- mocha.opts -------- mocha配置文件
+   |
+   |
+   |--- test.js    -------- 测试文件
+```
+
+
+# 执行测试
+
+```
+npm run test
 ```

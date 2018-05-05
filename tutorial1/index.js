@@ -60,3 +60,5 @@ const requestHandle = function(req, res) {
 server.on('request', requestHandle)
 
 server.listen(9000)
+
+module.exports = server

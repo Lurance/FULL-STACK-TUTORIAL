@@ -4,11 +4,15 @@
   "description": "Tutorial1",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon index.js"
+    "start": "./node_modules/.bin/nodemon index.js",
+    "test": "./node_modules/.bin/mocha"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.18.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
     "nodemon": "^1.17.3"
   }
 }
