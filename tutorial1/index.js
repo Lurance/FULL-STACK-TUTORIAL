@@ -23,6 +23,12 @@ const requestHandle = function(req, res) {
     console.log(req.method)
     // ------------ //
     switch(req.url) {
+        case '/test': {
+            fs.readFile('/Users/niangliang/Learn/full-stack-tutorial/tutorial2/index.html', (err, data) => {
+                res.end(data.toString())
+            })
+            break
+        }
         case '/': {
             fs.readFile(__dirname + '/index.html', function(err, data) {
                 if (err) throw err
