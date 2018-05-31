@@ -25,7 +25,7 @@ let DemoApiController = class DemoApiController {
         switch (id) {
             case '1':
                 return {
-                    _id: '﻿5b0e7aaaa19daf090b2bc3ca',
+                    _id: '1',
                     usertype: 2,
                     username: 'Mikey',
                     meta: {
@@ -34,7 +34,7 @@ let DemoApiController = class DemoApiController {
                 };
             case '2':
                 return {
-                    _id: '﻿5b0e7aaaa19daf090b2bc3cd',
+                    _id: '2',
                     usertype: 2,
                     username: 'Peggy',
                     meta: {
@@ -54,7 +54,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], DemoApiController.prototype, "demouserApi", null);
 __decorate([
-    routing_controllers_1.Get('/'),
+    routing_controllers_1.Get(''),
     routing_controllers_1.Render('index.html'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -70,7 +70,7 @@ exports.createServer = (PORT) => {
     app.use(json());
     app.use(views(__dirname + '/views'));
     routing_controllers_1.useKoaServer(app, {
-        routePrefix: '',
+        routePrefix: '/',
         controllers: [
             DemoApiController
         ]

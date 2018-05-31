@@ -21,12 +21,12 @@ class DemoApiController {
     constructor() {
     }
 
-    @Get('/user/:id')
+    @Get('user/:id')
     demouserApi(@Param('id') id: string) {
         switch (id) {
             case '1':
                 return {
-                    _id: '﻿5b0e7aaaa19daf090b2bc3ca',
+                    _id: '1',
                     usertype: 2,
                     username: 'Mikey',
                     meta: {
@@ -35,7 +35,7 @@ class DemoApiController {
                 }
             case '2':
                 return {
-                    _id: '﻿5b0e7aaaa19daf090b2bc3cd',
+                    _id: '2',
                     usertype: 2,
                     username: 'Peggy',
                     meta: {
@@ -45,7 +45,7 @@ class DemoApiController {
         }
     }
 
-    @Get('/')
+    @Get('')
     @Render('index.html')
     index() {
     }
@@ -67,7 +67,7 @@ export const createServer = (PORT) => {
 
 
     useKoaServer(app, {
-        routePrefix: '',
+        routePrefix: '/',
         controllers: [
             DemoApiController
         ]
