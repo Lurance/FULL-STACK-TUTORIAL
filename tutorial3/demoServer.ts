@@ -10,7 +10,7 @@ import * as md5 from "js-md5"
 
 import * as cors from "koa2-cors"
 
-import {Get, JsonController, Param, Render, useKoaServer} from "routing-controllers"
+import {Get, JsonController, Param, Redirect, Render, useKoaServer} from "routing-controllers"
 import * as views from "koa-views"
 
 
@@ -20,6 +20,7 @@ import * as views from "koa-views"
 class DemoApiController {
     constructor() {
     }
+
 
     @Get('user/:id')
     demouserApi(@Param('id') id: string) {
@@ -44,11 +45,6 @@ class DemoApiController {
                 }
         }
     }
-
-    @Get('')
-    @Render('index.html')
-    index() {
-    }
 }
 
 
@@ -66,11 +62,21 @@ export const createServer = (PORT) => {
     app.use(views(__dirname + '/views'))
 
 
+
+
     useKoaServer(app, {
         routePrefix: '/',
         controllers: [
             DemoApiController
         ]
+    })
+
+    app.use(async(ctx: Context, next) => {
+        if (ctx.req.url === '/') {
+            await ctx.render('index.html')
+        } else {
+            await next()
+        }
     })
 
 
