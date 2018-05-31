@@ -1,0 +1,33 @@
+{
+  "name": "tutorial3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/ts-node demoServer.ts",
+    "build": "./node_modules/.bin/tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/koa": "^2.0.45",
+    "@types/koa-json": "^2.0.18",
+    "@types/koa-views": "^2.0.3",
+    "@types/koa2-cors": "^2.0.1",
+    "@types/node": "^10.1.4",
+    "ts-node": "^6.0.5",
+    "typescript": "^2.8.4"
+  },
+  "dependencies": {
+    "@types/js-md5": "^0.4.2",
+    "js-md5": "^0.7.3",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-json": "^2.0.2",
+    "koa-router": "^8.0.0-alpha.1",
+    "koa-views": "^6.1.4",
+    "koa2-cors": "^2.0.5",
+    "mocha": "^5.2.0",
+    "routing-controllers": "^0.7.7"
+  }
+}

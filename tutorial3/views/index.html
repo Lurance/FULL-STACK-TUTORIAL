@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Home</title>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: #f6f5f6;
+            color: #222222;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            padding: 2vh 0 2vh 0;
+            margin: 2vh 0 5vh 0;
+            border-bottom: #222222 1px solid;
+            font-size: 4vw;
+        }
+
+        main {
+            background-color: #ffffff;
+            box-shadow: 10px 10px 5px #888888;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 50vh;
+            width: 80vw;
+            transition: transform 0.8s;
+        }
+
+        main:hover {
+            transform: translate(-5px, -5px);
+        }
+
+        main .main-content {
+            display: flex;
+            margin: 3vh 2vw 0 2vw;
+            flex-direction: column;
+        }
+
+        main .main-content .content-header {
+            padding: 0 0 2vh 0;
+            border-bottom: #c8c8c8 solid 1px;
+            width: 20vw;
+            font-size: 3vh;
+        }
+
+        main .main-content .content-header,
+        main .main-content .content-username,
+        main .main-content .content-createdAt {
+            margin: 2vh 0 2vh 0;
+        }
+
+        main .main-footer {
+            margin: 3vh 2vw 0 2vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        main .main-footer button {
+            transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+            color: rgba(0,0,0,.87);
+            background-color: #fff;
+            min-width: 88px;
+            line-height: 36px;
+            padding: 0 16px;
+            border-radius: 2px;
+            user-select: none;
+            cursor: pointer;
+            outline: 0;
+            border: none;
+        }
+
+        main .main-footer button:hover {
+            background-color: rgba(0,0,0,.1)
+        }
+
+
+    </style>
+</head>
+<body class="container">
+<header>
+    Manager Interface
+</header>
+
+<main>
+    <section class="main-content">
+        <span class="content-header" id="#content-header">用户一</span>
+        <span class="content-username" id="content-username">用户名：Admin</span>
+        <span class="content-usertype" id="content-usertype">用户类型：管理员</span>
+        <span class="content-createdAt" id="content-createdAt">注册时间：2018/5/30 下午10:19:22</span>
+    </section>
+
+    <section class="main-footer">
+        <button>上一个用户</button>
+        <button>下一个用户</button>
+    </section>
+</main>
+</body>
+</html>
