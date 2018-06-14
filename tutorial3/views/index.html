@@ -105,29 +105,75 @@
     </section>
 
     <section class="main-footer">
-        <button>上一个用户</button>
+        <button id="i">上一个用户</button>
         <button>下一个用户</button>
     </section>
 </main>
 </body>
 
 <script>
-	const data = {
+	class Observable {
+		constructor(data) {
+			this.observer = null;
+
+			this.observify(data)
+
+			this.subject = data;
+
+		}
+
+		observify(data) {
+			if (typeof data === 'object') {
+
+				for (let prop in data) {
+					this.defineReactive(data, prop, data[prop])
+				}
+
+			}
+		}
+
+
+		defineReactive(obj, key, value) {
+			const _this = this
+			_this.observify(value)
+			Object.defineProperty(obj, key, {
+				configurable: true,
+				enumerable: true,
+				set: function (newValue) {
+					let oldValue = value;
+					value = newValue;
+
+					_this.observer(oldValue, newValue)
+
+				},
+				get: function () {
+					return value;
+				},
+			});
+		}
+
+		bindObserver(fn) {
+			this.observer = fn
+		}
+	}
+
+
+	const observableObj = new Observable({
 		id: 1,
 		username: null,
 		usertype: null,
 		meta: {
 			createdAt: null
 		}
-	}
+	})
 
+	observableObj.bindObserver((oldValue, newValue) => console.log("newValue: ", newValue, " oldValue: ", oldValue))
+	let data = observableObj.subject
 
-    axios.get('/user/1')
-            .then(res => {
-            	console.log(res)
-            })
-
-
+	axios.get('/user/1')
+		.then(res => {
+			data.id = res.data.id
+		})
 
 
 </script>
